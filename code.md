@@ -1,5 +1,7 @@
 # Race-light
 //For Arduino IDE
+//Read it in RAW. Thank you.
+
 
 int redPin = 10;
 int bluePin = 8;
