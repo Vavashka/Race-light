@@ -1,6 +1,5 @@
 # Race-light
-Programming code made by myself for racing light using Arduino Board
-
+//For Arduino IDE
 
 int redPin = 10;
 int bluePin = 8;
