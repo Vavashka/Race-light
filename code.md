@@ -2,15 +2,17 @@
 //For Arduino IDE
 //Read it in RAW. Thank you.
 
-
+//RGB LED
 int redPin = 10;
 int bluePin = 8;
 int greenPin = 9;
+
+//PushButton
 int buttonPin = 7;
-
-
 int lastButton = LOW;
 
+
+//7 Segment LED
 int a = 2;
 int b = 3;
 int c = 4;
@@ -19,6 +21,8 @@ int e = 6;
 int f = 11;
 int g = 12;
 
+
+//Buzzer
 int buzzy = 13;
 
 void setup()
@@ -48,6 +52,8 @@ void setup()
   //Test
   Serial.begin(9600);
 }
+
+//To adjust the RGB of LED
 void rgb_color(int redPinValue, int greenPinValue, int bluePinValue)
 {
   analogWrite(redPin, redPinValue);
@@ -56,6 +62,8 @@ void rgb_color(int redPinValue, int greenPinValue, int bluePinValue)
 }
 
 
+
+//Function to turn off all the LEDs
 void turnOffLed()
 {
   digitalWrite(a, LOW);
@@ -67,8 +75,13 @@ void turnOffLed()
   digitalWrite(g, LOW);
 }
 
+
+
+//Functions to display numbers from 0 to 9 on 7 segment LED
 void ledN(int digit)
 {
+
+//Number 0
   if (digit == 0)
   {
     digitalWrite(a, HIGH);
@@ -78,11 +91,15 @@ void ledN(int digit)
     digitalWrite(e, HIGH);
     digitalWrite(f, HIGH);
   }
+  
+  //Number 1
   if (digit == 1)
   {
     digitalWrite(b, HIGH);
     digitalWrite(c, HIGH);
   }
+  
+  //Number 2
   if (digit == 2)
   {
     digitalWrite(a, HIGH);
@@ -91,6 +108,8 @@ void ledN(int digit)
     digitalWrite(e, HIGH);
     digitalWrite(g, HIGH);
   }
+  
+  //Number 3
   if (digit == 3)
   {
     digitalWrite(a, HIGH);
@@ -99,6 +118,8 @@ void ledN(int digit)
     digitalWrite(d, HIGH);
     digitalWrite(g, HIGH);
   }
+  
+  //Number 4
   if (digit == 4)
   {
     digitalWrite(b, HIGH);
@@ -106,6 +127,8 @@ void ledN(int digit)
     digitalWrite(f, HIGH);
     digitalWrite(g, HIGH);
   }
+  
+  //Number 5
   if (digit == 5)
   {
     digitalWrite(a, HIGH);
@@ -114,6 +137,8 @@ void ledN(int digit)
     digitalWrite(f, HIGH);
     digitalWrite(g, HIGH);
   }
+  
+  //Number 6
   if (digit == 6)
   {
     digitalWrite(a, HIGH);
@@ -123,12 +148,17 @@ void ledN(int digit)
     digitalWrite(e, HIGH);
     digitalWrite(f, HIGH);
   }
+  
+  //Number 7
   if (digit == 7)
   {
     digitalWrite(a, HIGH);
     digitalWrite(b, HIGH);
     digitalWrite(c, HIGH);
   }
+  
+  
+  //Number 8
   if (digit == 8)
   {
     digitalWrite(a, HIGH);
@@ -139,6 +169,9 @@ void ledN(int digit)
     digitalWrite(f, HIGH);
     digitalWrite(g, HIGH);
   }
+  
+  
+  //Number 9
   if (digit == 9)
   {
     digitalWrite(a, HIGH);
@@ -149,9 +182,12 @@ void ledN(int digit)
     digitalWrite(g, HIGH);
   }
 }
+
+
+
+//Progress effect after to show after each number
 void progressBar()
 {
-
 
   digitalWrite(d, HIGH);
   delay(20);
@@ -182,10 +218,11 @@ void progressBar()
 
 }
 
+
+//Main loop function
 void loop()
 {
 
-  
   int prButton = digitalRead(buttonPin);
   if (prButton != lastButton)
   {
